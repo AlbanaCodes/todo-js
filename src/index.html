@@ -4,9 +4,38 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link href="style.css" type="text/css" rel="stylesheet" />
+
+  <title>Todo list</title>
 </head>
 <body>
+
+  <div class="container">
+    <header>
+      <h1>Todo list</h1>
+      <form>
+        <input type="text" name="search" placeholder="search todos">
+      </form>
+    </header>
+
+    <ul>
+      <li>
+        <span>Buy milk</span>
+      </li>
+      <li>
+        <span>Go biking</span>
+      </li>
+      <li>
+        <span>Pet a cat</span>
+      </li>
+    </ul>
+
+    <form>
+      <label>Add a new todo...</label>
+      <input type="text" name="add"/>
+    </form>
+  </div>
   
+  <script src="app.js"></script>
 </body>
 </html>
