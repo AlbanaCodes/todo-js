@@ -1,6 +1,19 @@
 const searchForm = document.querySelector('.search input');
 const addForm = document.querySelector('.add');
 const todoList = document.querySelector('.todos');
+const emptyListText = document.querySelector('.emptyTodo');
+
+console.log(todoList);
+
+const checkTodoListLength = (() => {
+  if(todoList.childElementCount === 0){
+    emptyListText.classList.remove('hideElement');
+  } else {
+    emptyListText.classList.add('hideElement');
+  }
+});
+
+checkTodoListLength();
 
 const generateTodoTemplate = (todo) => {
   const htmlTemplate = `
@@ -17,6 +30,7 @@ addForm.addEventListener('submit', e => {
   const todo = addForm.add.value.trim(); // removes leading and trailing empty spaces
   if(todo.length){
     generateTodoTemplate(todo);
+    checkTodoListLength();
     addForm.reset();
   }
 });

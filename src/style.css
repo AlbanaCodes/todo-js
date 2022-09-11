@@ -22,3 +22,7 @@ input[type=text]:focus{
 .delete{
   cursor: pointer;
 }
+
+.hideElement{
+  display: none !important;
+}
