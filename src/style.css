@@ -1,8 +1,24 @@
 body{
-  background: #574e93;
+  background: #7469b9;
 }
 
 .container{
-  color: antiquewhite;
-  max-width: 680px;
+  /* color: antiquewhite; */
+  max-width: 600px;
+}
+
+.todos li{
+  background: #968bdb;
+}
+
+input[type=text],
+input[type=text]:focus{
+  color: #fff;
+  border: none;
+  background: rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+}
+
+.delete{
+  cursor: pointer;
 }

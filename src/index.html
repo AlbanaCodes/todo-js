@@ -10,6 +10,7 @@
         rel="stylesheet" 
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" 
         crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <link href="style.css" type="text/css" rel="stylesheet" />
 
   <title>Todo list</title>
@@ -17,33 +18,32 @@
 <body>
 
   <div class="container">
-    <header>
-      <h1>Todo list</h1>
-      <form>
-        <input type="text" name="search" placeholder="search todos">
+    <header class="text-center text-light my-4">
+      <h1 class="mb-4">Todo list</h1>
+      <form class="search">
+        <input class="form-control m-auto" type="text" name="search" placeholder="search todos...">
       </form>
     </header>
 
-    <article>
-      <ul>
-        <li>
-          <span>Buy milk</span>
-        </li>
-        <li>
-          <span>Go biking</span>
-        </li>
-        <li>
-          <span>Pet a cat</span>
-        </li>
-      </ul>
-    </article>
+    <ul class="todos list-group mx-auto text-light">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span>Buy milk</span>
+        <i class="bi bi-x-octagon delete"></i>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span>Go biking</span>
+        <i class="bi bi-x-octagon delete"></i>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span>Pet a cat</span>
+        <i class="bi bi-x-octagon delete"></i>
+      </li>
+    </ul>
 
-    <footer>
-      <form>
-        <label>Add a new todo...</label>
-        <input type="text" name="add"/>
-      </form>
-    </footer>
+    <form class="add text-center my-4">
+      <label class="text-light my-2">Add a new todo...</label>
+      <input class="form-control m-auto" type="text" name="add"/>
+    </form>
   </div>
   
   <script src="app.js"></script>
