@@ -15,6 +15,7 @@ const checkTodoListLength = (() => {
 
 checkTodoListLength();
 
+// insert todo
 const generateTodoTemplate = (todo) => {
   const htmlTemplate = `
   <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -32,5 +33,13 @@ addForm.addEventListener('submit', e => {
     generateTodoTemplate(todo);
     checkTodoListLength();
     addForm.reset();
+  }
+});
+
+// delete todo
+todoList.addEventListener('click', e => {
+  if(e.target.classList.contains('delete')){
+    e.target.parentElement.remove(); // e.target is the <i> and parentElement is the <li> in which the <i> is inside
+    checkTodoListLength();
   }
 });
