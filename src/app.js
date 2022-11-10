@@ -5,20 +5,21 @@ const emptyListText = document.querySelector('.emptyTodo');
 const searchForm = document.querySelector('.search');
 
 const checkLocalStorage = (() => {
-  for(i=1; i <= localStorage.length; i++){
-    const htmlTemplate = `
-      <li class="list-group-item d-flex justify-content-between align-items-center" data-liId=${i}>
-        <span>${localStorage.getItem(i)}</span>
-        <i class="bi bi-x-octagon delete"></i>
-      </li>
-      `;
-    todoList.innerHTML += htmlTemplate;
+  if(localStorage.length !== 0){
+    for(i=1; i <= localStorage.length; i++){
+      const htmlTemplate = `
+        <li class="list-group-item d-flex justify-content-between align-items-center" data-liId=${i}>
+          <span>${localStorage.getItem(i)}</span>
+          <i class="bi bi-x-octagon delete"></i>
+        </li>
+        `;
+      todoList.innerHTML += htmlTemplate;
+    }
   }
 });
 checkLocalStorage();
 
 const checkTodoListLength = (() => {
-  console.log('childElementCount: ', todoList.childElementCount);
   if(todoList.childElementCount === 0){
     emptyListText.classList.remove('hideElement');    
   } else {
@@ -30,7 +31,6 @@ checkTodoListLength();
 // insert todo
 const generateTodoTemplate = (todo) => {
   const liSize = document.getElementById('todoList').getElementsByTagName('li').length + 1;
-  console.log('liSize: ', liSize);
   localStorage.setItem(liSize, todo);
 
   const htmlTemplate = `
@@ -53,9 +53,11 @@ addForm.addEventListener('submit', e => {
 });
 
 // delete todo
-todoList.addEventListener('click', e => {
+todoList.addEventListener('click', e => {  
   if(e.target.classList.contains('delete')){
     e.target.parentElement.remove(); // e.target is the <i> and parentElement is the <li> in which the <i> is inside
+    const liid = parseInt(e.target.parentElement.dataset.liid);
+    localStorage.removeItem(liid);
     checkTodoListLength();
   }
 });
