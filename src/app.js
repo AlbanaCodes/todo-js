@@ -55,8 +55,8 @@ addForm.addEventListener('submit', e => {
 // delete todo
 todoList.addEventListener('click', e => {  
   if(e.target.classList.contains('delete')){
-    e.target.parentElement.remove(); // e.target is the <i> and parentElement is the <li> in which the <i> is inside
     const liid = parseInt(e.target.parentElement.dataset.liid);
+    e.target.parentElement.remove(); // e.target is the <i> and parentElement is the <li> in which the <i> is inside
     localStorage.removeItem(liid);
     checkTodoListLength();
   }
